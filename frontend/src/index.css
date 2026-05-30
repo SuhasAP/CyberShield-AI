@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #030712;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.4) 0px, transparent 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Cyber Scanning Grid Background */
+.cyber-grid {
+  background-image: linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Scanning Overlay Animation */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(14, 165, 233, 0.08) 10%,
+    rgba(14, 165, 233, 0.15) 50%,
+    rgba(14, 165, 233, 0.08) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Cyber Pulse Animation */
+.cyber-pulse-cyan {
+  animation: pulse-cyan 2s infinite;
+}
+@keyframes pulse-cyan {
+  0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+}
+
+.cyber-pulse-rose {
+  animation: pulse-rose 2s infinite;
+}
+@keyframes pulse-rose {
+  0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+/* Digital Glitch-like Hover Text Effect */
+.cyber-glitch-text {
+  text-shadow: 0.05em 0 0 rgba(244, 63, 94, 0.75),
+               -0.025em -0.05em 0 rgba(14, 165, 233, 0.75),
+               0.025em 0.05em 0 rgba(16, 185, 129, 0.75);
+}
